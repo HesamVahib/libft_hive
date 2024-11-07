@@ -1,9 +1,9 @@
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize) {
-    int d_size;
-    int s_size;
-    int i;
+    size_t d_size;
+    size_t s_size;
+    size_t i;
 
     d_size = 0;
     while (d_size < dstsize && dst[d_size] != '\0') {

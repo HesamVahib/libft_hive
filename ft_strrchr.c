@@ -1,4 +1,6 @@
-char *ft_strrchr(char *str, char c){    
+#include "libft.h"
+
+char *ft_strrchr(char *str, char c) {    
     int l;
 
     l = 0;
