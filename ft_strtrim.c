@@ -24,7 +24,6 @@ char *ft_strtrim(char const *s1, char const *set) {
     }
 
     char *res;
-    char const *end;
     size_t len;
     size_t i;
 

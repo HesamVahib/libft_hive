@@ -2,56 +2,54 @@
 
 char **ft_split(char const *s, char c) {
     char **arr;
-    size_t len;
-    int delim;
-    int i;
-    int j;
-    int z;
+    int word_counter;
+    int i, j, z, t;
 
-    len = 0;
-    delim = 0;
-    while(s[len]) {
-        if (s[len] == c) {
-            delim++;
+    i = 0;
+    word_counter = 0;
+    while(s[i]) {
+        if ((s[i] != c) && (i == 0 || s[i-1] == c)) {
+            word_counter++;
         }
-        len++;
+        i++;
     }
-    printf("size of len is %i and delim is %i\n", len, delim);
 
-    arr = (char **)malloc((len-delim+1) * sizeof(char*));
+    arr = (char **)malloc((word_counter + 1) * sizeof(char *));
 
     if (arr == NULL) {
         return NULL;
     }
 
-    printf("size is %i\n", sizeof(arr));
+    i = 0;
+    z = 0;
+    while (i < word_counter) {
+        while (s[z] == c) z++;
+
+        j = 0;
+        while (s[z + j] && s[z + j] != c) j++;
+
+        arr[i] = (char *)malloc((j + 1) * sizeof(char));
+
+        if (arr[i] == NULL) {
+            t = 0;
+            while (t < i) {
+                free(arr[t]);
+                t++;
+            }
+            free(arr);
+            return NULL;
+        }
+        t = 0;
+        while (t < j) {
+            arr[i][t] = s[z];
+            z++;
+            t++;
+        }
+        arr[i][t] = '\0';
+        i++;
+
+    }
+    arr[i] = NULL;
+
+    return arr;
 }
-
-int main() {
-    char s[] = "hesam vahib antene";
-    char delimitier = ' ';
-    ft_split(s, delimitier);
-    // char *str = "Hello world this is ft_split";
-    // char delimiter = ' ';
-    // char **result = ft_split(str, delimiter);
-
-    // if (!result) {
-    //     printf("Memory allocation failed.\n");
-    //     return 1;
-    // }
-
-    // printf("Original string: \"%s\"\n", str);
-    // printf("Split by delimiter '%c':\n", delimiter);
-
-    // int i = 0;
-    // while (result[i]) {
-    //     printf("result[%d] = \"%s\"\n", i, result[i]);
-    //     free(result[i]);  // Free each individual string
-    //     i++;
-    // }
-    // free(result);  // Free the array of pointers
-
-    // return 0;
-}
-
-

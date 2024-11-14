@@ -2,8 +2,8 @@
 
 char *ft_substr(char const *s, unsigned int start, size_t len) {
     char *sub;
-    int i;
-    int j;
+    unsigned int i;
+    size_t j;
 
     sub = (char *)malloc((len + 1) * sizeof(char));
 
@@ -13,7 +13,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len) {
 
     i = 0;
     while (i < start) {
-        s[i++];
+        i++;
     }
    
     j = 0;
