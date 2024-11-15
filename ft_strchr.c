@@ -1,7 +1,7 @@
 #include "libft.h"
 
-char *ft_strchr(char *str, char c) {    
-    int l;
+char *ft_strchr(char *str, char c) {
+    size_t l;
 
     l = 0;
     while (str[l] != '\0') {
@@ -10,5 +10,8 @@ char *ft_strchr(char *str, char c) {
         }
         l++;
     }
+    if (c == '\0')
+        return &str[l];
+        
     return 0;
 }

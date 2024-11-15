@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "libft.h"
 
 char *ft_strjoin(char const *s1, char const *s2) {
@@ -8,6 +7,7 @@ char *ft_strjoin(char const *s1, char const *s2) {
 
     s1_len = 0;
     s2_len = 0;
+
     while (s1[s1_len++]);
     while (s2[s2_len++]);
 
@@ -18,7 +18,7 @@ char *ft_strjoin(char const *s1, char const *s2) {
     }
 
     ft_strlcpy(dest, s1, s1_len);
-    ft_strlcat(dest, s2, s2_len);
+    ft_strlcat(dest, s2, (s2_len+s1_len));
     
     return dest;
 }

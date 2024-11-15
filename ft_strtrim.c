@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "libft.h"
 
 int isset(char c, const char *set) {
     while (*set) {

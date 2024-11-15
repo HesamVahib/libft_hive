@@ -14,7 +14,7 @@ void *ft_calloc(size_t num, size_t size) {
 
     i = 0;
     while (i < len) {
-        s[i] = '0';
+        s[i] = 0;
         i++;
     }
     

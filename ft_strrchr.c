@@ -1,6 +1,9 @@
 #include "libft.h"
 
 char *ft_strrchr(char *str, char c) {    
+    if (str == NULL)
+        return NULL;
+    
     int l;
 
     l = 0;
