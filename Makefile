@@ -4,6 +4,9 @@ NAME = libft.a
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
+so: $(OBJ)
+	$(CC) -shared -o libft.so $(OBJ)
+
 all: $(NAME)
 
 $(NAME): $(OBJ)

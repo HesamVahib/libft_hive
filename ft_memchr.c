@@ -1,16 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: havhib <hvahib@student.hive.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/15 15:14:03 by havhib            #+#    #+#             */
+/*   Updated: 2024/11/15 19:08:26 by havhib           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-const void *ft_memchr(const void *ptr, int value, size_t num) {
-    const unsigned char *p = (const unsigned char *)ptr;
-    unsigned char val = (unsigned char)value;
+void	*ft_memchr(const void *ptr, int value, size_t num)
+{
+	const unsigned char	*p;
+	unsigned char		val;
 
-    while (num--) {
-        if (*p == val) {
-            return (const void *)p;
-        }
-        p++;
-    }
-
-    return NULL;
-
+	p = (const unsigned char *)ptr;
+	val = (unsigned char)value;
+	while (num--)
+	{
+		if (*p == val)
+			return ((void *)p);
+		p++;
+	}
+	return (NULL);
 }
