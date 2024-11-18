@@ -6,7 +6,7 @@
 /*   By: havhib <hvahib@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:15:05 by havhib            #+#    #+#             */
-/*   Updated: 2024/11/15 22:05:03 by havhib           ###   ########.fr       */
+/*   Updated: 2024/11/18 14:00:54 by havhib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	size_t	i;
 
-	if (s1 == NULL)
+	if (!s1 || !set)
 		return (NULL);
 	while (*s1 && isset(*s1, set))
 		s1++;
 	len = ft_strlen(s1);
-	while (isset(s1[len - 1], set))
+	while (len > 0 && isset(s1[len - 1], set))
 		len--;
 	res = (char *)malloc((len + 1) * sizeof(char));
-	if (res == NULL)
+	if (!res)
 		return (NULL);
 	i = 0;
 	while (i < len)

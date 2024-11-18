@@ -6,7 +6,7 @@
 /*   By: havhib <hvahib@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:15:09 by havhib            #+#    #+#             */
-/*   Updated: 2024/11/15 23:57:17 by havhib           ###   ########.fr       */
+/*   Updated: 2024/11/18 11:50:02 by havhib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	size_t			j;
 
-	if ((int)start > ft_strlen(s))
+	if ((size_t)start > ft_strlen(s))
 	{
 		sub = (char *)malloc(1 * sizeof(char));
 		if (sub == NULL)
