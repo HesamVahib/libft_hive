@@ -6,7 +6,7 @@
 /*   By: havhib <hvahib@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:12:33 by havhib            #+#    #+#             */
-/*   Updated: 2024/11/18 13:50:44 by havhib           ###   ########.fr       */
+/*   Updated: 2024/11/18 17:23:50 by havhib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,25 @@ int	big_int(int sign)
 int	very_big_checker(const char *str, int sign)
 {
 	size_t	count;
+	int		res;
 
 	count = 0;
+	res = 1;
 	while (str[count] && (str[count] >= '0' && str[count] <= '9'))
 	{
 		count++;
 		if (count > 18 && sign == -1)
+		{
+			res = 0;
 			return (0);
+		}
 		else if (count > 17 && sign == 1)
+		{
+			res = -1;
 			return (-1);
+		}
 	}
-	return (1);
+	return (res);
 }
 
 int	ft_atoi(const char *str)
@@ -53,10 +61,9 @@ int	ft_atoi(const char *str)
 		if (str[i] == '-')
 			sign = -1;
 		i++;
-		
 	}
 	if (very_big_checker(&str[i], sign) <= 0)
-		return (very_big_checker((char *)str, sign));
+		return (very_big_checker(&str[i], sign));
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (num > (2147483647 - (str[i] - '0')) / 10)
