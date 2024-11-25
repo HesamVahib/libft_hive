@@ -50,12 +50,6 @@ SRC_BONUS = ft_lstadd_back_bonus.c \
 OBJ_PART = $(SRC_PART:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-so: $(OBJ_PART)
-	$(CC) -fPIC $(FLAGS) -c $(SRC_PART)
-	$(CC) -fPIC $(FLAGS) -c $(SRC_BONUS)
-	$(CC) -shared -o libft.so $(OBJ_PART) $(OBJ_BONUS)
-	@echo "\033[90m[\033[32mSuccess\033[90m]\033[32m Shared library created: libft.so\033[0m"
-
 %.o: %.c
 	@$(CC) $(FLAGS) -o $@ -c $<
 	@echo "\033[90m[\033[32mOK\033[90m]\033[34m Compiling $<\033[0m"
